@@ -1,0 +1,23 @@
+:root{
+    --backgroundColor: #2E3440;
+    --fontColor: #ECEFF4;
+    --correctColor: #A3BE8C;
+    background-color: var(--backgroundColor);
+    color: var(--fontColor);
+    font-family: 'Fira Code',monospace;
+}
+
+body{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.announce{
+    display:none;
+}
+.note{
+    display:none;
+}
+span{
+    color: var(--correctColor);
+}
