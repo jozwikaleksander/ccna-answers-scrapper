@@ -19,14 +19,19 @@ app.get('/', (req, res) => {
           const $ = cheerio.load(html);
 
           let questions = $("div.thecontent").html();
-        
-          res.render('index',{questions:questions});
+
+          if(questions){
+            questions = questions.replace(/<p><\/p><div class="message_box announce">.+paragraph -->/gm,"");
+            questions = questions.replace(/<!-- Ezoic .+End Ezoic .+ -->/gm,"");
+            questions = questions.replace(/<h3>.+<\/h3>/gm,"");
+            res.render('index',{questions:questions});
+          }
         }
     });
  
 });
 
-const PORT = process.env.PORT || 7000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Our app is running on port ${ PORT }`);
 });
